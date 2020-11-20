@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/lab4.dir/src/main.cpp.o  -o lab4   -L/home/czolg/studia/jipp/labs/lab4/include/lab4  -Wl,-rpath,/home/czolg/studia/jipp/labs/lab4/include/lab4 include/lab4/libmatrix.a 

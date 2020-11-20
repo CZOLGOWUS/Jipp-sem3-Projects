@@ -1,0 +1,6 @@
+/home/czolg/studia/jipp/labs/lab4/build/CMakeFiles/rebuild_cache.dir
+/home/czolg/studia/jipp/labs/lab4/build/CMakeFiles/edit_cache.dir
+/home/czolg/studia/jipp/labs/lab4/build/CMakeFiles/lab4.dir
+/home/czolg/studia/jipp/labs/lab4/build/include/lab4/CMakeFiles/rebuild_cache.dir
+/home/czolg/studia/jipp/labs/lab4/build/include/lab4/CMakeFiles/edit_cache.dir
+/home/czolg/studia/jipp/labs/lab4/build/include/lab4/CMakeFiles/matrix.dir

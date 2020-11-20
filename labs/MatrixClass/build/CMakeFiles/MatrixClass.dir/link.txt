@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/MatrixClass.dir/src/main.cpp.o  -o MatrixClass   -L/home/czolg/studia/jipp/labs/MatrixClass/include/lab4  -Wl,-rpath,/home/czolg/studia/jipp/labs/MatrixClass/include/lab4 include/lab4/libmatrix.a 

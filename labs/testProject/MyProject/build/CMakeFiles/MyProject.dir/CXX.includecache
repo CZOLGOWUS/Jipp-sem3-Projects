@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/adder.hpp
+
+/home/czolg/studia/jipp/labs/testProject/MyProject/src/main.cpp
+iostream
+-
+adder.hpp
+/home/czolg/studia/jipp/labs/testProject/MyProject/src/adder.hpp
+

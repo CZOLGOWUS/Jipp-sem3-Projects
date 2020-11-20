@@ -1,0 +1,6 @@
+/home/czolg/studia/jipp/labs/testProject/MyProject/build/CMakeFiles/rebuild_cache.dir
+/home/czolg/studia/jipp/labs/testProject/MyProject/build/CMakeFiles/edit_cache.dir
+/home/czolg/studia/jipp/labs/testProject/MyProject/build/CMakeFiles/MyProject.dir
+/home/czolg/studia/jipp/labs/testProject/MyProject/build/include/CMakeFiles/rebuild_cache.dir
+/home/czolg/studia/jipp/labs/testProject/MyProject/build/include/CMakeFiles/edit_cache.dir
+/home/czolg/studia/jipp/labs/testProject/MyProject/build/include/CMakeFiles/adder.dir

@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/MyProject.dir/src/main.cpp.o  -o MyProject   -L/home/czolg/studia/jipp/labs/testProject/MyProject/include  -Wl,-rpath,/home/czolg/studia/jipp/labs/testProject/MyProject/include include/libadder.a 
