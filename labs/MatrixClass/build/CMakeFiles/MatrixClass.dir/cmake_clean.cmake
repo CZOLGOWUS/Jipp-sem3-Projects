@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/MatrixClass.dir/src/Matrix.cpp.o"
   "CMakeFiles/MatrixClass.dir/src/main.cpp.o"
   "MatrixClass"
   "MatrixClass.pdb"

@@ -6,5 +6,5 @@ CXX_FLAGS =
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/czolg/studia/jipp/labs/MatrixClass/include/lab4 
+CXX_INCLUDES = -I/home/czolg/studia/jipp/labs/MatrixClass/PRIVATE -I/home/czolg/studia/jipp/labs/MatrixClass/./include/lab4 -I/home/czolg/studia/jipp/labs/MatrixClass/PUBLIC -I/home/czolg/studia/jipp/labs/MatrixClass/./src 
 

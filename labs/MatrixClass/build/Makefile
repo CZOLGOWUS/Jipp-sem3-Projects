@@ -123,18 +123,32 @@ MatrixClass/fast:
 	$(MAKE) -f CMakeFiles/MatrixClass.dir/build.make CMakeFiles/MatrixClass.dir/build
 .PHONY : MatrixClass/fast
 
-#=============================================================================
-# Target rules for targets named matrix
+src/Matrix.o: src/Matrix.cpp.o
 
-# Build rule for target.
-matrix: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 matrix
-.PHONY : matrix
+.PHONY : src/Matrix.o
 
-# fast build rule for target.
-matrix/fast:
-	$(MAKE) -f include/lab4/CMakeFiles/matrix.dir/build.make include/lab4/CMakeFiles/matrix.dir/build
-.PHONY : matrix/fast
+# target to build an object file
+src/Matrix.cpp.o:
+	$(MAKE) -f CMakeFiles/MatrixClass.dir/build.make CMakeFiles/MatrixClass.dir/src/Matrix.cpp.o
+.PHONY : src/Matrix.cpp.o
+
+src/Matrix.i: src/Matrix.cpp.i
+
+.PHONY : src/Matrix.i
+
+# target to preprocess a source file
+src/Matrix.cpp.i:
+	$(MAKE) -f CMakeFiles/MatrixClass.dir/build.make CMakeFiles/MatrixClass.dir/src/Matrix.cpp.i
+.PHONY : src/Matrix.cpp.i
+
+src/Matrix.s: src/Matrix.cpp.s
+
+.PHONY : src/Matrix.s
+
+# target to generate assembly for a file
+src/Matrix.cpp.s:
+	$(MAKE) -f CMakeFiles/MatrixClass.dir/build.make CMakeFiles/MatrixClass.dir/src/Matrix.cpp.s
+.PHONY : src/Matrix.cpp.s
 
 src/main.o: src/main.cpp.o
 
@@ -172,7 +186,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... MatrixClass"
-	@echo "... matrix"
+	@echo "... src/Matrix.o"
+	@echo "... src/Matrix.i"
+	@echo "... src/Matrix.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

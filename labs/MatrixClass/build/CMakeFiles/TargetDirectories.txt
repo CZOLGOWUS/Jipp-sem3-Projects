@@ -1,6 +1,3 @@
 /home/czolg/studia/jipp/labs/MatrixClass/build/CMakeFiles/edit_cache.dir
 /home/czolg/studia/jipp/labs/MatrixClass/build/CMakeFiles/rebuild_cache.dir
 /home/czolg/studia/jipp/labs/MatrixClass/build/CMakeFiles/MatrixClass.dir
-/home/czolg/studia/jipp/labs/MatrixClass/build/include/lab4/CMakeFiles/rebuild_cache.dir
-/home/czolg/studia/jipp/labs/MatrixClass/build/include/lab4/CMakeFiles/edit_cache.dir
-/home/czolg/studia/jipp/labs/MatrixClass/build/include/lab4/CMakeFiles/matrix.dir
