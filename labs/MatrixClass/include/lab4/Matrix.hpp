@@ -32,19 +32,29 @@ public:
     Matrix(std::string path);
     ~Matrix();
 
+    Matrix(const Matrix& m1);
+
     void store(std::string filename, std::string path) const;
 
-    void operator=(const Matrix&);
-    Matrix* operator+(const Matrix& m2) const;
-    Matrix* operator-(const Matrix& m2) const;
+    void operator = (const Matrix&);
+    Matrix operator+(const Matrix& m2) const;
+    Matrix operator-(const Matrix& m2) const;
 
-    Matrix* duplicate() const;
+    Matrix addReturnCopy(const Matrix&) const;
+    Matrix multiReturnCopy(const Matrix&) const;
+    Matrix subbReturnCopy(const Matrix&) const;
+
+    Matrix* multiReturnPointer(const Matrix&) const;
+    Matrix* addReturnPointer(const Matrix&) const;
+    Matrix* subbReturnPointer(const Matrix&) const;
+
+    //Matrix* duplicate() const;
     void set(int y , int x , double val);
     double get(int x, int y) const;
     void PrintMatrix()const;
-    Matrix* multi(const Matrix&) const;
-    Matrix* add(const Matrix&) const;
-    Matrix* subb(const Matrix&) const;
+
+
+
     int cols() const;
     int rows() const;
 

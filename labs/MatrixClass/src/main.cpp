@@ -28,13 +28,24 @@ void test()
     std::cout << "\n";
 
 
-    Matrix* M3M4 = M3.add(M4); // dodaje do M3, M4
+    Matrix* M3M4 = M3.addReturnPointer(M4); // dodaje do M3, M4
     M3M4->PrintMatrix();
     std::cout << "\n";
 
+    std::cout << "Substracting Matrix: \n";
+    M3.PrintMatrix();
+    std::cout << "\n";
+    M4.PrintMatrix();
+    std::cout << "\n";
+
+
+    Matrix* MSubstructed = M3.subbReturnPointer(M4);
+    MSubstructed->PrintMatrix();
+    std::cout << "\n";
+
     std::cout << "Operator + \n";
-    Matrix* M8 = M3 + M4;
-    M8->PrintMatrix();
+    Matrix M8 = M3 + M4;
+    M8.PrintMatrix();
 
     std::cout << "Get() and set() in (0,0) Matrix:\n";
     M4.PrintMatrix();
@@ -50,7 +61,7 @@ void test()
     std::cout << "\n";
     Mm2.PrintMatrix();
     std::cout << "\n\n\n";
-    Matrix* Mm3 = Mm1.multi(Mm2);
+    Matrix* Mm3 = Mm1.multiReturnPointer(Mm2);
     Mm3->PrintMatrix();
     std::cout << "\n\n\n";
 
@@ -79,6 +90,43 @@ void test()
 #endif
 
     test2.PrintMatrix();
+
+
+    std::cout << "\n\n\n";    
+    std::cout << "\nTesting copying constructors:\n";
+
+    Matrix a1(5, 7, 3);
+    Matrix a2(5, 7, 1);
+
+    std::cout << "a1: \n";
+    a1.PrintMatrix();
+
+    std::cout << "a2: \n";
+    a2.PrintMatrix();
+
+
+
+    std::cout << "\nAdding\n";
+    a1 = a1 + a2;
+
+    std::cout << "a1: \n";
+    a1.PrintMatrix();
+
+    std::cout << "a2: \n";
+    a2.PrintMatrix();
+    
+
+
+    std::cout << "\nSubbstracting\n";
+    a1 = a1 - a2;
+
+    std::cout << "a1: \n";
+    a1.PrintMatrix();
+
+    std::cout << "a2: \n";
+    a2.PrintMatrix();
+
+
 }
 
 int main()

@@ -137,11 +137,26 @@ Matrix::~Matrix()
         delete[] _matrix;
 }
 
+//coping constructor
+Matrix::Matrix(const Matrix& m1)
+{
+    this->_matrix = InstanciateMatrix(m1._xSize, m1._ySize);
+    this->_xSize = m1._xSize;
+    this->_ySize = m1._ySize;
+
+    for (int i = 0; i < this->_xSize; i++)
+        for (int j = 0; j < this->_ySize; j++)
+        {
+            this->_matrix[i][j] = m1._matrix[i][j];
+        }
+}
+
 //Matrixis in making
-Matrix* Matrix::duplicate() const
+/*Matrix* Matrix::duplicate() const
 {
     return new Matrix();
-}
+}*/
+
 double** Matrix::InstanciateMatrix(int x, int y)
 {
     double** matrix = new double*[x];
@@ -151,27 +166,8 @@ double** Matrix::InstanciateMatrix(int x, int y)
     return matrix;
 }
 
-//Operations
-void Matrix::operator=(const Matrix& m2)
-{
-    //M3 =    ( M2 + M5)// = m2 ;
-    Matrix placeHolderM(m2._ySize, m2._ySize);
-    placeHolderM._matrix = InstanciateMatrix(m2._xSize, m2._ySize);
-
-    for (int i = 0; i < m2._xSize; i++)
-        for (int j = 0; j < m2._ySize; j++)
-        {
-            placeHolderM._matrix[i][j] = m2._matrix[i][j];
-        }
-
-    this->_ySize = placeHolderM._ySize;
-    this->_xSize = placeHolderM._xSize;
-    this->_matrix = placeHolderM._matrix;
-
-    placeHolderM._matrix = nullptr;
-
-}
-Matrix* Matrix::add(const Matrix& m2 ) const
+//Operations returning pointers
+Matrix* Matrix::addReturnPointer(const Matrix& m2 ) const
 {
     if ( !(this->_xSize == m2._xSize && this->_ySize == m2._ySize) )
     {
@@ -189,25 +185,7 @@ Matrix* Matrix::add(const Matrix& m2 ) const
 
     return AddedM;
 }
-Matrix* Matrix::operator+(const Matrix& M2) const 
-{
-    if (_xSize != M2._xSize || _ySize != M2._ySize) 
-    {
-        std::cout << "Dimensions don't match!" << std::endl;
-        exit(-1);
-    }
-
-    Matrix* new_mat = new Matrix(_xSize, _ySize);
-    for (int i = 0; i < _xSize; i++) 
-    {
-        for (int j = 0; j < _ySize; j++) 
-        {
-            new_mat->_matrix[i][j] = _matrix[i][j] + M2._matrix[i][j];
-        }
-    }
-    return new_mat;
-}
-Matrix* Matrix::subb(const Matrix& m2) const
+Matrix* Matrix::subbReturnPointer(const Matrix& m2) const
 {
     if (!(this->_xSize == m2._xSize && this->_ySize == m2._ySize))
     {
@@ -220,30 +198,12 @@ Matrix* Matrix::subb(const Matrix& m2) const
     for (int i = 0; i < this->_xSize; i++)
         for (int j = 0; j < this->_ySize; j++)
         {
-            SubbM->set(i, j, this->get(i, j) - m2.get(i, j) + i);
+            SubbM->set(i, j, this->get(i, j) - m2.get(i, j));
         }
 
     return SubbM;
 }
-Matrix* Matrix::operator-(const Matrix& m2) const
-{
-    if (!(this->_xSize == m2._xSize && this->_ySize == m2._ySize))
-    {
-        std::cout << "matrixies cannot be added : diffrent sizes\n";
-        exit(-1);
-    }
-
-    Matrix* SubbM = new Matrix(this->_xSize, this->_ySize);
-
-    for (int i = 0; i < this->_xSize; i++)
-        for (int j = 0; j < this->_ySize; j++)
-        {
-            SubbM->set(i, j, this->get(i, j) - m2.get(i, j) + i);
-        }
-
-    return SubbM;
-}
-Matrix* Matrix::multi(const  Matrix& m2 ) const
+Matrix* Matrix::multiReturnPointer(const  Matrix& m2 ) const
 {
     if (m2._xSize != this->_ySize )
     {
@@ -262,6 +222,119 @@ Matrix* Matrix::multi(const  Matrix& m2 ) const
         }
     }
     return MultiM;
+}
+
+//Operations returning copies
+Matrix Matrix::addReturnCopy(const Matrix& m2) const
+{
+    if (!(this->_xSize == m2._xSize && this->_ySize == m2._ySize))
+    {
+        std::cout << "matrixies cannot be added : diffrent sizes\n";
+        exit(-1);
+    }
+
+    Matrix AddedM(this->_xSize, this->_ySize);
+
+    for (int i = 0; i < this->_xSize; i++)
+        for (int j = 0; j < this->_ySize; j++)
+        {
+            AddedM.set(i, j, this->get(i, j) + m2.get(i, j));
+        }
+
+    return AddedM;
+}
+Matrix Matrix::subbReturnCopy(const Matrix& m2) const
+{
+    if (!(this->_xSize == m2._xSize && this->_ySize == m2._ySize))
+    {
+        std::cout << "matrixies cannot be added : diffrent sizes\n";
+        exit(-1);
+    }
+
+    Matrix SubbM(this->_xSize, this->_ySize);
+
+    for (int i = 0; i < this->_xSize; i++)
+        for (int j = 0; j < this->_ySize; j++)
+        {
+            SubbM.set(i, j, this->get(i, j) - m2.get(i, j));
+        }
+
+    return SubbM;
+}
+Matrix Matrix::multiReturnCopy(const Matrix& m2) const
+{
+    if (m2._xSize != this->_ySize )
+    {
+        std::cout << "matrixies cannot be added : diffrent sizes\n";
+        exit(-1);
+    }
+
+    Matrix MultiM( this->_xSize , m2._ySize , (double)0);
+
+    for (int i = 0; i < this->_xSize; i++)
+    {
+        for (int j = 0; j < m2._ySize; j++)
+        {
+            for (int k = 0; k < this->_ySize ; k++)
+                MultiM._matrix[i][j] += this->get(i,k) * m2.get(k,j);
+        }
+    }
+    return MultiM;
+}
+
+//operators
+Matrix Matrix::operator-(const Matrix& m2) const
+{
+    if (!(this->_xSize == m2._xSize && this->_ySize == m2._ySize))
+    {
+        std::cout << "matrixies cannot be added : diffrent sizes\n";
+        exit(-1);
+    }
+
+    Matrix SubbMatrix(this->_xSize, this->_ySize);
+
+    for (int i = 0; i < this->_xSize; i++)
+        for (int j = 0; j < this->_ySize; j++)
+        {
+            SubbMatrix.set(i, j, this->get(i, j) - m2.get(i, j));
+        }
+
+    return SubbMatrix;
+}
+Matrix Matrix::operator+(const Matrix& M2) const 
+{
+    if (_xSize != M2._xSize || _ySize != M2._ySize) 
+    {
+        std::cout << "Dimensions don't match!" << std::endl;
+        exit(-1);
+    }
+
+    Matrix new_mat(_xSize, _ySize);
+    for (int i = 0; i < _xSize; i++) 
+    {
+        for (int j = 0; j < _ySize; j++) 
+        {
+            new_mat._matrix[i][j] = _matrix[i][j] + M2._matrix[i][j];
+        }
+    }
+    return new_mat;
+}
+void Matrix::operator = (const Matrix& m1)
+{
+    if (!(this->_xSize == m1._xSize && this->_ySize == m1._ySize))
+    {
+        this->_matrix = InstanciateMatrix(m1._xSize, m1._ySize);
+    }
+
+    this->_xSize = m1._xSize;
+    this->_ySize = m1._ySize;
+
+    for (int i = 0; i < this->_xSize; i++)
+        for (int j = 0; j < this->_ySize; j++)
+        {
+            this->_matrix[i][j] = m1._matrix[i][j];
+        }
+
 }
 
 //defult methods
