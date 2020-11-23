@@ -321,8 +321,12 @@ int Matrix::rows() const
 void Matrix::store(std::string filename, std::string path) const
 {
     std::ofstream file;
-
+#ifdef _WIN32
     file.open(path + "//" + filename );
+#else
+    file.open(path + "/" + filename );
+#endif
+
     if (file.is_open())
     {
         std::string placeHolderString;

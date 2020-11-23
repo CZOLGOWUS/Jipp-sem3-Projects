@@ -66,7 +66,7 @@ void test()
 #ifdef _WIN32
     test.store("test.txt", "E:\\studia\\semestr 3\\JiPP\\labs\\1\\visualcommunity porject\\tests");
 #else
-    test.store("test.txt", "./tests");
+    test.store("test.txt", "./");
 #endif
 
     std::cout << "Load Matrix:\n";
@@ -75,7 +75,7 @@ void test()
 #ifdef _WIN32
     Matrix test2("E:\\studia\\semestr 3\\JiPP\\labs\\1\\visualcommunity porject\\tests\\test.txt");
 #else
-    Matrix test2("./tests.txt");
+    Matrix test2("./test.txt");
 #endif
 
     test2.PrintMatrix();
