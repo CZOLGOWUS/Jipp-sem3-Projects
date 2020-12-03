@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-../include/lab4/Matrix.hpp
+../include/lab5/Matrix.hpp
 iostream
 -
 iomanip
@@ -19,8 +19,14 @@ fstream
 -
 list
 -
+exception
+-
 
-/home/czolg/studia/jipp/labs/MatrixClass/src/Matrix.cpp
+/home/czolg/studia/jipp/labs/lab5/src/Matrix.cpp
+Matrix.hpp
+-
+
+/home/czolg/studia/jipp/labs/lab5/src/main.cpp
 Matrix.hpp
 -
 
