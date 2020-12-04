@@ -7,6 +7,7 @@
 #include <exception>
 
 
+
 class Matrix
 {
  /*
@@ -30,12 +31,12 @@ public:
     Matrix(int x, int y);
     Matrix(int x, int y, double z);
     Matrix(int);
-    Matrix(std::string path);
+    Matrix(const std::string& path);
     ~Matrix();
 
     Matrix(const Matrix& m1);
 
-    void store(std::string filename, std::string path) const;
+    void store(const std::string& filename, const std::string& path) const;
 
     void operator = (const Matrix&);
     Matrix operator+(const Matrix& m2) const;
@@ -46,9 +47,9 @@ public:
     Matrix multiReturnCopy(const Matrix&) const;
     Matrix subbReturnCopy(const Matrix&) const;
 
-    Matrix* multiReturnPointer(const Matrix&) const;
-    Matrix* addReturnPointer(const Matrix&) const;
-    Matrix* subbReturnPointer(const Matrix&) const;
+    Matrix* multiReturnPointer(const Matrix&);
+    Matrix* addReturnPointer(const Matrix&);
+    Matrix* subbReturnPointer(const Matrix&);
 
     //Matrix* duplicate() const;
     void set(int y , int x , double val);

@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/czolg/studia/jipp/labs/lab5/src/Matrix.cpp" "/home/czolg/studia/jipp/labs/lab5/build/CMakeFiles/lab5.dir/src/Matrix.cpp.o"
+  "/home/czolg/studia/jipp/labs/lab5/src/MatrixExeptions.cpp" "/home/czolg/studia/jipp/labs/lab5/build/CMakeFiles/lab5.dir/src/MatrixExeptions.cpp.o"
   "/home/czolg/studia/jipp/labs/lab5/src/main.cpp" "/home/czolg/studia/jipp/labs/lab5/build/CMakeFiles/lab5.dir/src/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

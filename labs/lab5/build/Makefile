@@ -150,6 +150,33 @@ src/Matrix.cpp.s:
 	$(MAKE) -f CMakeFiles/lab5.dir/build.make CMakeFiles/lab5.dir/src/Matrix.cpp.s
 .PHONY : src/Matrix.cpp.s
 
+src/MatrixExeptions.o: src/MatrixExeptions.cpp.o
+
+.PHONY : src/MatrixExeptions.o
+
+# target to build an object file
+src/MatrixExeptions.cpp.o:
+	$(MAKE) -f CMakeFiles/lab5.dir/build.make CMakeFiles/lab5.dir/src/MatrixExeptions.cpp.o
+.PHONY : src/MatrixExeptions.cpp.o
+
+src/MatrixExeptions.i: src/MatrixExeptions.cpp.i
+
+.PHONY : src/MatrixExeptions.i
+
+# target to preprocess a source file
+src/MatrixExeptions.cpp.i:
+	$(MAKE) -f CMakeFiles/lab5.dir/build.make CMakeFiles/lab5.dir/src/MatrixExeptions.cpp.i
+.PHONY : src/MatrixExeptions.cpp.i
+
+src/MatrixExeptions.s: src/MatrixExeptions.cpp.s
+
+.PHONY : src/MatrixExeptions.s
+
+# target to generate assembly for a file
+src/MatrixExeptions.cpp.s:
+	$(MAKE) -f CMakeFiles/lab5.dir/build.make CMakeFiles/lab5.dir/src/MatrixExeptions.cpp.s
+.PHONY : src/MatrixExeptions.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -189,6 +216,9 @@ help:
 	@echo "... src/Matrix.o"
 	@echo "... src/Matrix.i"
 	@echo "... src/Matrix.s"
+	@echo "... src/MatrixExeptions.o"
+	@echo "... src/MatrixExeptions.i"
+	@echo "... src/MatrixExeptions.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

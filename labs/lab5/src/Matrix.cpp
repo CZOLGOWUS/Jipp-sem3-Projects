@@ -1,13 +1,56 @@
 #include <Matrix.hpp>
+#include "MatrixExeptions.cpp"
+
+//file control
+std::ifstream OpenInputFile(const std::string& path)
+{
+    std::ifstream file;
+    file.open(path,std::iostream::in);
+
+    try
+    {
+        if (!file.is_open())
+        {
+            throw "could not open file : constructor aborted!";
+        }
+    }
+    catch(const std::string& e)
+    {
+        std::cerr << e << "\n";
+        exit(errno);
+    }
+
+    return file;
+} 
+std::ofstream OpenOutputFile(const std::string& path)
+{
+    std::ofstream file;
+    file.open(path, std::iostream::out);
+
+    try
+    {
+        if (!file.is_open())
+        {
+            throw "could not open file : constructor aborted!";
+        }
+    }
+    catch(const std::string& e)
+    {
+        std::cerr << e << "\n";
+        exit(errno);
+    }
+
+    return file;
+} 
 
 // De\- Construktors
 Matrix::Matrix()
 {
-    _xSize = 1;
-    _ySize = 1;
+    _xSize = 0;
+    _ySize = 0;
 
-    _matrix = InstanciateMatrix(1, 1);
-    _matrix[0][0] = 1;
+    _matrix = nullptr;
+
 }
 Matrix::Matrix(int x)
 {
@@ -44,22 +87,16 @@ Matrix::Matrix(int x, int y,double z)
         for (int j = 0; j < _ySize; j++)
             set(i, j, z);
 }
-Matrix::Matrix(std::string path)
+Matrix::Matrix(const std::string& path)
 {
     int x = 0, y = 0;
     std::list<double> listOfMatrixNumbers;
 
-    std::ifstream file;
-
     std::string line;
     std::string numberString;
 
-    file.open(path, std::iostream::out);
-    if (!file.is_open())
-    {
-        std::cout << "could not open file : constructor aborted\n";
-        exit(-1);
-    }
+
+    std::ifstream file = OpenInputFile(path);
 
     while (std::getline(file, line)) 
     {
@@ -127,6 +164,8 @@ Matrix::Matrix(std::string path)
                 set(i, j, listOfMatrixNumbers.front());
                 listOfMatrixNumbers.pop_front();
             }
+
+    file.close();
 }
 Matrix::~Matrix()
 {
@@ -151,20 +190,11 @@ Matrix::Matrix(const Matrix& m1)
     this->_xSize = m1._xSize;
     this->_ySize = m1._ySize;
 
-    try
-    {
         for (int i = 0; i < this->_xSize; i++)
             for (int j = 0; j < this->_ySize; j++)
             {
-                this->_matrix[i][j] = m1._matrix[i][j];
+                this->set(i,j,m1.get(i,j));
             }
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    
-
 }
 
 //Matrixis in making
@@ -183,18 +213,19 @@ double** Matrix::InstanciateMatrix(int x, int y)
 }
 
 //Operations returning pointers
-Matrix* Matrix::addReturnPointer(const Matrix& m2 ) const
+Matrix* Matrix::addReturnPointer(const Matrix& m2 )
 {
     try
     {
         if ( !(this->_xSize == m2._xSize && this->_ySize == m2._ySize) )
         {
-            throw std::invalid_argument("matrixies cannot be added : diffrent sizes");
+            throw matrix_diffrent_size();
         }
     }
-    catch(const std::out_of_range& e)
+    catch(const matrix_diffrent_size& e)
     {
         std::cerr << e.what() << "\n";
+        return this;
     }
 
     Matrix* AddedM = new Matrix(this->_xSize, this->_ySize);
@@ -207,18 +238,19 @@ Matrix* Matrix::addReturnPointer(const Matrix& m2 ) const
 
     return AddedM;
 }
-Matrix* Matrix::subbReturnPointer(const Matrix& m2) const
+Matrix* Matrix::subbReturnPointer(const Matrix& m2)
 {
     try
     {
         if ( !(this->_xSize == m2._xSize && this->_ySize == m2._ySize) )
         {
-            throw std::invalid_argument("matrixies cannot be added : diffrent sizes");
+            throw matrix_diffrent_size();
         }
     }
-    catch(const std::out_of_range& e)
+    catch(const matrix_diffrent_size& e)
     {
         std::cerr << e.what() << "\n";
+        return this;
     }
 
     Matrix* SubbM = new Matrix(this->_xSize, this->_ySize);
@@ -231,18 +263,19 @@ Matrix* Matrix::subbReturnPointer(const Matrix& m2) const
 
     return SubbM;
 }
-Matrix* Matrix::multiReturnPointer(const  Matrix& m2 ) const
+Matrix* Matrix::multiReturnPointer(const Matrix& m2 )
 {
     try
     {
-        if (m2._xSize != this->_ySize )
+        if ( !(this->_xSize == m2._xSize && this->_ySize == m2._ySize) )
         {
-            throw std::invalid_argument("matrixies cannot be added : this.number_of_columns is not equal to secondMatrix.number_of_rows");
+            throw matrix_multiplication_error();
         }
     }
-    catch(const std::out_of_range& e)
+    catch(const matrix_multiplication_error& e)
     {
         std::cerr << e.what() << "\n";
+        return this;
     }
 
     Matrix* MultiM = new Matrix( this->_xSize , m2._ySize , (double)0);
@@ -268,9 +301,11 @@ Matrix Matrix::addReturnCopy(const Matrix& m2) const
             throw std::invalid_argument("matrixies cannot be added : diffrent sizes");
         }
     }
-    catch(const std::out_of_range& e)
+    catch(const std::invalid_argument& e)
     {
         std::cerr << e.what() << "\n";
+        std::cerr << errno;
+        exit(errno);
     }
 
     Matrix AddedM(this->_xSize, this->_ySize);
@@ -292,9 +327,11 @@ Matrix Matrix::subbReturnCopy(const Matrix& m2) const
             throw std::invalid_argument("matrixies cannot be added : diffrent sizes");
         }
     }
-    catch(const std::out_of_range& e)
+    catch(const std::invalid_argument& e)
     {
         std::cerr << e.what() << "\n";
+        std::cerr << errno;
+        exit(errno);
     }
 
     Matrix SubbM(this->_xSize, this->_ySize);
@@ -313,12 +350,14 @@ Matrix Matrix::multiReturnCopy(const Matrix& m2) const
     {
         if (m2._xSize != this->_ySize )
         {
-            throw std::invalid_argument("matrixies cannot be added : this.number_of_columns is not equal to secondMatrix.number_of_rows");
+            throw std::invalid_argument("matrixies cannot be multiplied : this.number_of_columns is not equal to second_Matrix.number_of_rows");
         }
     }
-    catch(const std::out_of_range& e)
+    catch(const std::invalid_argument& e)
     {
         std::cerr << e.what() << "\n";
+        std::cerr << errno;
+        exit(errno);
     }
 
     Matrix MultiM( this->_xSize , m2._ySize , (double)0);
@@ -341,12 +380,14 @@ Matrix Matrix::operator-(const Matrix& m2) const
     {
         if ( !(this->_xSize == m2._xSize && this->_ySize == m2._ySize) )
         {
-            throw std::invalid_argument("matrixies cannot be added : diffrent sizes");
+            throw matrix_diffrent_size();
         }
     }
-    catch(const std::out_of_range& e)
+    catch(const std::exception& e)
     {
         std::cerr << e.what() << "\n";
+        std::cerr << errno;
+        exit(errno);
     }
 
     Matrix SubbMatrix(this->_xSize, this->_ySize);
@@ -365,12 +406,14 @@ Matrix Matrix::operator+(const Matrix& m2) const
     {
         if ( !(this->_xSize == m2._xSize && this->_ySize == m2._ySize) )
         {
-            throw std::invalid_argument("matrixies cannot be added : diffrent sizes");
+            throw matrix_diffrent_size();
         }
     }
-    catch(const std::out_of_range& e)
+    catch(const std::exception& e)
     {
         std::cerr << e.what() << "\n";
+        std::cerr << errno;
+        exit(errno);
     }
 
     Matrix new_mat(_xSize, _ySize);
@@ -389,12 +432,13 @@ Matrix Matrix::operator*(const Matrix& m2) const
     {
         if (m2._xSize != this->_ySize )
         {
-            throw std::invalid_argument("matrixies cannot be added : this.number_of_columns is not equal to secondMatrix.number_of_rows");
+            throw matrix_multiplication_error();
         }
     }
-    catch(const std::out_of_range& e)
+    catch(const std::exception& e)
     {
         std::cerr << e.what() << "\n";
+        return(*this);
     }
 
     Matrix MultiM( this->_xSize , m2._ySize , (double)0);
@@ -432,31 +476,32 @@ void Matrix::set(int x = 0, int y = 0, double val = 0)
 {
     try
     {
+        if(this->_xSize < x || this->_ySize < y)
+            throw std::out_of_range("Getter failed : out of range of matrix");
+
         _matrix[x][y] = val;
-    }
-    catch(const std::out_of_range& e)
-    {
-        std::cerr << e.what() << "\n";
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << "\n";
+        std::cerr << errno;
+        exit(errno);
     }
 }
 double Matrix::get(int x, int y) const
 {
     try
     {
-        return _matrix[x][y];
-    }
-    catch(const std::out_of_range& e)
-    {
-        std::cerr << e.what() << "\n";
+        if(this->_xSize < x || this->_ySize < y)
+            throw std::out_of_range("Getter failed : out of range of matrix");
 
+        return _matrix[x][y];
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << "\n";
+        std::cerr << errno;
+        exit(errno);
     }
 }
 void Matrix::PrintMatrix()const
@@ -492,33 +537,20 @@ int Matrix::rows() const
 {
     return this->_xSize;
 }
-void Matrix::store(std::string filename, std::string path) const
+void Matrix::store(const std::string& filename, const std::string& path) const
 {
     std::ofstream file;
 #ifdef _WIN32
-try
-{
-    file.open(path + "//" + filename );
-}
-catch(const std::exception& e)
-{
-    std::cerr << e.what() << "\n";
-}
+    file = OpenOutputFile(path + "//" + filename);
 #else
-try
-{
-    file.open(path + "/" + filename );
-}
-catch(const std::exception& e)
-{
-    std::cerr << e.what() << "\n";
-}
+    file = OpenOutputFile(path + "/" + filename);
 #endif
 
         std::string placeHolderString;
         try
         {
-            file << '/' << _xSize << '/' << _ySize <<'|';
+            if(!(file << '/' << _xSize << '/' << _ySize <<'|'))
+                throw std::ios_base::failure("could not save size of matrix to file");
         }
         catch(const std::exception& e)
         {
@@ -533,7 +565,8 @@ catch(const std::exception& e)
 
         try
         {
-            file << placeHolderString;
+            if(!(file << placeHolderString))
+                throw std::ios_base::failure("could not save matrix to file");
             file.close();
             return;
         }
@@ -541,8 +574,5 @@ catch(const std::exception& e)
         {
             std::cerr << e.what() << "\n";
         }
-
-    std::cout << "file : " << filename << " could not be opened\n";
-    exit(-1);
 
 }

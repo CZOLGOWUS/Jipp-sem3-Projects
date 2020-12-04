@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/lab5.dir/src/Matrix.cpp.o"
+  "CMakeFiles/lab5.dir/src/MatrixExeptions.cpp.o"
   "CMakeFiles/lab5.dir/src/main.cpp.o"
   "lab5"
   "lab5.pdb"

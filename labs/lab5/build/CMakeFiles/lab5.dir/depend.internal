@@ -4,6 +4,9 @@
 CMakeFiles/lab5.dir/src/Matrix.cpp.o
  ../include/lab5/Matrix.hpp
  /home/czolg/studia/jipp/labs/lab5/src/Matrix.cpp
+ /home/czolg/studia/jipp/labs/lab5/src/MatrixExeptions.cpp
+CMakeFiles/lab5.dir/src/MatrixExeptions.cpp.o
+ /home/czolg/studia/jipp/labs/lab5/src/MatrixExeptions.cpp
 CMakeFiles/lab5.dir/src/main.cpp.o
  ../include/lab5/Matrix.hpp
  /home/czolg/studia/jipp/labs/lab5/src/main.cpp

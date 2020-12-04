@@ -25,6 +25,14 @@ exception
 /home/czolg/studia/jipp/labs/lab5/src/Matrix.cpp
 Matrix.hpp
 -
+MatrixExeptions.cpp
+/home/czolg/studia/jipp/labs/lab5/src/MatrixExeptions.cpp
+
+/home/czolg/studia/jipp/labs/lab5/src/MatrixExeptions.cpp
+iostream
+-
+exception
+-
 
 /home/czolg/studia/jipp/labs/lab5/src/main.cpp
 Matrix.hpp

@@ -54,7 +54,7 @@ void test()
     M4.set(0, 0, 654546522231);
     M4.PrintMatrix();
     std::cout << "\n";
-    std::cout << M4.get(0, 0) << std::endl;
+
 
     std::cout << "Multiplication of 2 Matrixies:\n";
     Mm1.PrintMatrix();
@@ -125,6 +125,17 @@ void test()
 
     std::cout << "a2: \n";
     a2.PrintMatrix();
+
+    std::cout << "\nthrowing testing:\n";
+
+    //try
+    //{
+        Matrix mw = a1 * a2;
+    // }
+    // catch(const std::exception& e)
+    // {
+    //     std::cerr << e.what() << "\n";
+    // }
 
 
 }
