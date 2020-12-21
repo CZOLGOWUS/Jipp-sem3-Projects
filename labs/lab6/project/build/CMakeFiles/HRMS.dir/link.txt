@@ -1,0 +1,2 @@
+/usr/bin/ar qc libHRMS.a  CMakeFiles/HRMS.dir/src/HRMS.cpp.o
+/usr/bin/ranlib libHRMS.a

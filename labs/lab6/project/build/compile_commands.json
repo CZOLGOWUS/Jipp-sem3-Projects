@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/home/czolg/studia/jipp/labs/lab6/project/build",
+  "command": "/usr/bin/c++   -I/home/czolg/studia/jipp/labs/lab6/project/./include/lab6 -I/home/czolg/studia/jipp/labs/lab6/project/./src  -g   -o CMakeFiles/prog.dir/src/main.cpp.o -c /home/czolg/studia/jipp/labs/lab6/project/src/main.cpp",
+  "file": "/home/czolg/studia/jipp/labs/lab6/project/src/main.cpp"
+},
+{
+  "directory": "/home/czolg/studia/jipp/labs/lab6/project/build",
+  "command": "/usr/bin/c++   -I/home/czolg/studia/jipp/labs/lab6/project/./include/lab6 -I/home/czolg/studia/jipp/labs/lab6/project/./src  -g   -o CMakeFiles/HRMS.dir/src/HRMS.cpp.o -c /home/czolg/studia/jipp/labs/lab6/project/src/HRMS.cpp",
+  "file": "/home/czolg/studia/jipp/labs/lab6/project/src/HRMS.cpp"
+},
+{
+  "directory": "/home/czolg/studia/jipp/labs/lab6/project/build",
+  "command": "/usr/bin/c++   -I/home/czolg/studia/jipp/labs/lab6/project/./include/lab6 -I/home/czolg/studia/jipp/labs/lab6/project/./src  -g   -o CMakeFiles/Employee.dir/src/Employee.cpp.o -c /home/czolg/studia/jipp/labs/lab6/project/src/Employee.cpp",
+  "file": "/home/czolg/studia/jipp/labs/lab6/project/src/Employee.cpp"
+}
+]

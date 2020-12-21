@@ -1,0 +1,77 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16.3"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "project",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Employee::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Employee-Debug-1e7736ec6850567cb720.json",
+					"name" : "Employee",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "HRMS::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-HRMS-Debug-e9a05aced6930aa0f8c1.json",
+					"name" : "HRMS",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "prog::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-prog-Debug-f6195d43f0c9b9c40be3.json",
+					"name" : "prog",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/czolg/studia/jipp/labs/lab6/project/build",
+		"source" : "/home/czolg/studia/jipp/labs/lab6/project"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}

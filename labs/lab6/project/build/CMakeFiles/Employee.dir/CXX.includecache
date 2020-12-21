@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/lab6/Employee.h
+string
+-
+
+/home/czolg/studia/jipp/labs/lab6/project/src/Employee.cpp
+Employee.h
+-
+

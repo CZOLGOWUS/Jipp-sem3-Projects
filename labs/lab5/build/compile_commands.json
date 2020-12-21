@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/home/czolg/studia/jipp/labs/lab5/build",
+  "command": "/usr/bin/c++   -I/home/czolg/studia/jipp/labs/lab5/PUBLIC -I/home/czolg/studia/jipp/labs/lab5/./include/lab5 -I/home/czolg/studia/jipp/labs/lab5/PRIVATE -I/home/czolg/studia/jipp/labs/lab5/./src  -g   -o CMakeFiles/lab5.dir/src/main.cpp.o -c /home/czolg/studia/jipp/labs/lab5/src/main.cpp",
+  "file": "/home/czolg/studia/jipp/labs/lab5/src/main.cpp"
+},
+{
+  "directory": "/home/czolg/studia/jipp/labs/lab5/build",
+  "command": "/usr/bin/c++   -I/home/czolg/studia/jipp/labs/lab5/PUBLIC -I/home/czolg/studia/jipp/labs/lab5/./include/lab5 -I/home/czolg/studia/jipp/labs/lab5/PRIVATE -I/home/czolg/studia/jipp/labs/lab5/./src  -g   -o CMakeFiles/lab5.dir/src/Matrix.cpp.o -c /home/czolg/studia/jipp/labs/lab5/src/Matrix.cpp",
+  "file": "/home/czolg/studia/jipp/labs/lab5/src/Matrix.cpp"
+},
+{
+  "directory": "/home/czolg/studia/jipp/labs/lab5/build",
+  "command": "/usr/bin/c++   -I/home/czolg/studia/jipp/labs/lab5/PUBLIC -I/home/czolg/studia/jipp/labs/lab5/./include/lab5 -I/home/czolg/studia/jipp/labs/lab5/PRIVATE -I/home/czolg/studia/jipp/labs/lab5/./src  -g   -o CMakeFiles/lab5.dir/src/MatrixExeptions.cpp.o -c /home/czolg/studia/jipp/labs/lab5/src/MatrixExeptions.cpp",
+  "file": "/home/czolg/studia/jipp/labs/lab5/src/MatrixExeptions.cpp"
+}
+]

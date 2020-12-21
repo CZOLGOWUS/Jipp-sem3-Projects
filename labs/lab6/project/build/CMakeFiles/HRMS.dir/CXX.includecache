@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/lab6/Employee.h
+string
+-
+
+../include/lab6/HRMS.h
+iostream
+-
+vector
+-
+map
+-
+iomanip
+-
+algorithm
+-
+functional
+-
+Employee.h
+../include/lab6/Employee.h
+
+/home/czolg/studia/jipp/labs/lab6/project/src/HRMS.cpp
+HRMS.h
+-
+
