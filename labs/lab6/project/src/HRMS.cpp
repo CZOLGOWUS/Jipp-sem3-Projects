@@ -102,7 +102,6 @@ void HRMS::PrintSalariesSorted() const
 {
 	std::vector<std::pair<double,std::string> > salaryTemp;
 
-
 	for (auto& it : salaryMap)
 	{
 		salaryTemp.push_back(std::make_pair(it.second,it.first));

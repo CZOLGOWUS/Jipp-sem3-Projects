@@ -14,7 +14,7 @@ class HRMS
 private:
 
 	HRMS() {}
-	static HRMS s_HRMS;
+	//static HRMS s_HRMS;
 
 	std::map<std::string, Employee*> employeesMap;		//<id, employees>
 	std::map<std::string, std::string> departamentsMap; //<departamentID , employee id>

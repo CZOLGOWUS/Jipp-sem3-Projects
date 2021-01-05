@@ -16,9 +16,9 @@ private:
 
 public:
 	Employee();
-	Employee(  std::string name, std::string surname);
-	Employee(  std::string name, std::string surname, std::string departmentID);
-	Employee(  std::string name, std::string surname, std::string departmentID, std::string position);
+	Employee(std::string name, std::string surname);
+	Employee(std::string name, std::string surname, std::string departmentID);
+	Employee(std::string name, std::string surname, std::string departmentID, std::string position);
 
 	~Employee();
 
