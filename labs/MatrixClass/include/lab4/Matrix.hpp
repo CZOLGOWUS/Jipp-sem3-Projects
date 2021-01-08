@@ -39,6 +39,8 @@ public:
     void operator = (const Matrix&);
     Matrix operator+(const Matrix& m2) const;
     Matrix operator-(const Matrix& m2) const;
+    Matrix operator*(const Matrix& m2) const;
+
 
     Matrix addReturnCopy(const Matrix&) const;
     Matrix multiReturnCopy(const Matrix&) const;

@@ -125,6 +125,27 @@ void test()
 
     std::cout << "a2: \n";
     a2.PrintMatrix();
+    
+    
+
+    Matrix Mmmulti1(10,5,2);
+    Matrix Mmmulti2(5,10,5);
+
+    std::cout << "Mmmulti1: \n";
+    Mmmulti1.PrintMatrix();
+
+    std::cout << "Mmmulti2: \n";
+    Mmmulti2.PrintMatrix();
+
+
+    std::cout << "\nMultiplying\n";
+    Mmmulti1 = Mmmulti1 * Mmmulti2;
+
+    std::cout << "Mmmulti1: \n";
+    Mmmulti1.PrintMatrix();
+
+    std::cout << "Mmmulti2: \n";
+    Mmmulti2.PrintMatrix();
 
 
 }

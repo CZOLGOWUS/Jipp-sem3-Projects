@@ -207,7 +207,7 @@ Matrix* Matrix::multiReturnPointer(const  Matrix& m2 ) const
 {
     if (m2._xSize != this->_ySize )
     {
-        std::cout << "matrixies cannot be added : diffrent sizes\n";
+        std::cout << "matrixies cannot be added : diffrent sizes of colums to rows\n";
         exit(-1);
     }
 
@@ -265,7 +265,7 @@ Matrix Matrix::multiReturnCopy(const Matrix& m2) const
 {
     if (m2._xSize != this->_ySize )
     {
-        std::cout << "matrixies cannot be added : diffrent sizes\n";
+        std::cout << "matrixies cannot be added : diffrent sizes of colums to rows\n";
         exit(-1);
     }
 
@@ -318,6 +318,26 @@ Matrix Matrix::operator+(const Matrix& M2) const
         }
     }
     return new_mat;
+}
+Matrix Matrix::operator*(const Matrix& m2) const
+{
+        if (m2._xSize != this->_ySize )
+    {
+        std::cout << "matrixies cannot be added : diffrent sizes of colums to rows\n";
+        exit(-1);
+    }
+
+    Matrix MultiM( this->_xSize , m2._ySize , (double)0);
+
+    for (int i = 0; i < this->_xSize; i++)
+    {
+        for (int j = 0; j < m2._ySize; j++)
+        {
+            for (int k = 0; k < this->_ySize ; k++)
+                MultiM._matrix[i][j] += this->get(i,k) * m2.get(k,j);
+        }
+    }
+    return MultiM;
 }
 void Matrix::operator = (const Matrix& m1)
 {
