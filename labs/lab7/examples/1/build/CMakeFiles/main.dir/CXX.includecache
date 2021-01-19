@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/czolg/studia/jipp/labs/lab7/examples/1/src/main.cpp
+array
+-
+mutex
+-
+thread
+-
+atomic
+-
+chrono
+-
+iostream
+-
+string
+-
+random
+-
+iomanip
+-
+string_view
+-
+

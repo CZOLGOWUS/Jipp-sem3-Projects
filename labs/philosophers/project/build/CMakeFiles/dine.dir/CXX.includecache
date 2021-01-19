@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/philosopher.hpp
+table.hpp
+-
+thread
+-
+chrono
+-
+
+../include/table.hpp
+iostream
+-
+mutex
+-
+atomic
+-
+
+/home/czolg/studia/jipp/labs/philosophers/project/src/philosopher.cpp
+philosopher.hpp
+-
+time.h
+-
+

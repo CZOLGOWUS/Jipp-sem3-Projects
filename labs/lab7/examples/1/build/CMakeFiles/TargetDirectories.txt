@@ -1,0 +1,3 @@
+/home/czolg/studia/jipp/labs/lab7/examples/1/build/CMakeFiles/rebuild_cache.dir
+/home/czolg/studia/jipp/labs/lab7/examples/1/build/CMakeFiles/edit_cache.dir
+/home/czolg/studia/jipp/labs/lab7/examples/1/build/CMakeFiles/main.dir

@@ -1,0 +1,3 @@
+/home/czolg/studia/jipp/labs/philosophers/project/build/CMakeFiles/rebuild_cache.dir
+/home/czolg/studia/jipp/labs/philosophers/project/build/CMakeFiles/edit_cache.dir
+/home/czolg/studia/jipp/labs/philosophers/project/build/CMakeFiles/dine.dir
